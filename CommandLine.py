@@ -1,6 +1,7 @@
 import argparse
 import sys
 import actionClasses
+import SignIn
 
 class CommandLineParser:
     def parseit(self):
@@ -15,9 +16,10 @@ class CommandLineParser:
             exit()
         if (len(sys.argv)>2):
             print("Too many arguments!")
+            exit()
 
         switcher = {
-            'register':actionClasses.register(),
+            'register':SignIn.SignIn(),
             'addGrade':actionClasses.addGrade(),
             'getGrade':actionClasses.getGrade(),
             'getResults':actionClasses.getResults(),

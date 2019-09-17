@@ -1,10 +1,14 @@
+import database
 class action:
     def Connect_DB(self):
         print("Database connected.")
 
+    def begin(self):
+        print("Welcome to the Grades app!")
 
-class register(action): #inherits action class
-    pass
+
+
+
 
 class addGrade(action):
     pass
