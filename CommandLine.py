@@ -11,22 +11,37 @@ class CommandLineParser:
         # print(sys.argv)
         if (len(sys.argv) == 1):
             print("Hi! This is the Grades app. It uses the command line.")
-            print("You must input at least one argument for it to work. Type 'python Main x', where x is one of 'register, 'addGrade', 'getGrade', 'getResults'.")
+            print("You must input at least one argument for it to work. Type 'python Main x', where x is one of 'Login' or 'Register'.")
             print("Please try again.") 
             exit()
         if (len(sys.argv)>2):
             print("Too many arguments!")
             exit()
 
-        switcher = {
-            'register':SignIn.SignIn(),
-            'addGrade':actionClasses.addGrade(),
-            'getGrade':actionClasses.getGrade(),
-            'getResults':actionClasses.getResults(),
-        }
+        # switcher = {
+        #     'register':SignIn.SignIn(),
+        #     'addGrade':actionClasses.addGrade(),
+        #     'getGrade':actionClasses.getGrade(),
+        #     'getResults':actionClasses.getResults(),
+        # }
+        SignInScreen = SignIn.SignIn()
+        if(sys.argv[1]== "Login"):
+            SignInScreen.LogIn()
+        elif(sys.argv[1]== "Register"):
+            SignInScreen.CreateUser()
+        else:
+            print("Incorrect Command. Commands are either Login or Register")
 
-        desired_action = switcher.get(sys.argv[1])
-        return desired_action
+        return
+
+
+
+
+
+
+
+        # desired_action = switcher.get(sys.argv[1])
+        # return desired_action
         
         
 
