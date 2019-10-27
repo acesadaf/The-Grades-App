@@ -20,9 +20,12 @@ def close_connection(conn):
 
 def create_if_not_exists(conn): 
     make_users = "create table if not exists Users(username char(100) primary key, name char(100), password char(100))"
-    make_users = "create table if not exists Courses(username char(100), Course_ID char(100), Course_Name char (100), Component char(100), Weight number, primary key (Course_ID, Component), foreign key (username) references Users (username))"
-    #make_courses = 
+    make_courses = "create table if not exists Courses(username char(100), Course_ID char(100), Course_Name char (100), Component char(100), Weight number, primary key (Course_ID, Component), foreign key (username) references Users (username))"
+    make_entries = "create table if not exists Entries(username char(100), Course_ID char(100), Component char(100), value number, outof number, primary key(username, Course_ID, Component), foreign key (Component) references Courses (Component))" 
     conn.execute(make_users)
+    conn.execute(make_courses)
+    conn.execute(make_entries)
+    conn.commit()
 
 
 
